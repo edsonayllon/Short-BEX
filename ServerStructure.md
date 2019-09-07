@@ -29,14 +29,15 @@ and expecting this output:
 ```
 {
     userId: string,
+    accountBalance: string | BigNumber // funds in user's private key owned account
     shortingProfile: {
         positions // see positions
     },
     lendingProfile: {
-        availableBalance: string | BigNumber // current available funds
+        applicationBalance: string | BigNumber // current available funds for lending
         projectedBalance: string | BigNumber // sum of principles + interest, what is expected when all funds return
         active: boolean // can money be used for lends, or are they awaiting to remove their funds
-        lends // see lends
+        lends // see lends 
     }
 }
 ```
@@ -70,6 +71,10 @@ lends: [{
 }]
 ```
 
+Prices must be queried from the Binance API. `openPrice` is queried when the position is opened and stored in the database. `currentPrice` is queried when the frontend accesses the `api/profile` endpoint, is sent to the frontend, but is not stored by the server. 
+
+The server acts as if funds were moved, but does not actually submit trades to Binance through their API. Movement of funds is recorded in the Database with each time a position is opened and closed, or a loan amounts are sent or returned. 
+
 `api/provideLoan` is sending this input.
 
 ```
@@ -90,6 +95,16 @@ And expecting this output:
 ```
 
 Funds enter accounts available to lend balance, which can be accessed by short traders.
+
+`api/closeLoans` is sending this input.
+
+```
+{
+    id: string
+}
+```
+
+This initiates returning all funds to the lender when the funds become available. No more funds can be taking from this lender's provided funds. Funds are moved from user's application balance to user's account balance.
 
 `api/openPosition` is sending this input:
 
