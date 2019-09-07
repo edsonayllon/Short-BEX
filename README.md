@@ -15,6 +15,9 @@ Leverage is calculated as so collateral can cover up to a 2x increase in price f
 
 <img src="https://latex.codecogs.com/gif.latex?principle%20%3D%200.494312*%20%282%5Ccdot%20collateral%20&plus;%201%29" />
 
+## Business Model
+
+A 7% APY interest rate is charged to the margin trader for borrowing. From that 7%, 6% goes to the lender, 1% goes to the platform as a service fee. As those fees accumulate, they are used as lending liquidity as well, acummulating 7% interest on the fees collected. The value of the company grows as both lenders and margin traders grow, and as the time the platform exists increases. 
 
 ## Roadmap
 
