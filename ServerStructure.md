@@ -33,13 +33,22 @@ and expecting this output:
 ```
 {
     userId: string,
-    accountBalance: string | BigNumber // funds in user's private key owned account
+    accountBalance: [{
+        token: string // symbol like BNB,
+        amount: string // quantity of this token
+    }],
     shortingProfile: {
         positions // see positions
     },
     lendingProfile: {
-        applicationBalance: string | BigNumber // current available funds for lending
-        projectedBalance: string | BigNumber // sum of principles + interest, what is expected when all funds return
+        applicationBalance: [{
+            token: string // symbol like BNB,
+            amount: string // quantity of this token
+        }],
+        projectedBalance: [{
+            token: string // symbol like BNB,
+            amount: string // quantity of this token
+        }],
         active: boolean // can money be used for lends, or are they awaiting to remove their funds
         lends // see lends 
     }
@@ -54,7 +63,7 @@ positions: [{
     isOpen: boolean, true if position was opened and is still open,
     collateral: string | BigNumber, // collateral
     principle: string | bigNumber, // amount borrowed
-    currency: string // ie "ETH",
+    token: string // ie "ETH",
     openPrice: string | BigNumber, // Price of currency in USD when position was opened
     currentPrice: string | BigNumber, // Price of currency
     terminationPrice: string | BigNumber, // termination price is 1.98x the opening price
@@ -68,16 +77,65 @@ Lends is also an array.
 ```
 lends: [{
     id: string // id of position lending to
-    lent: string | BigNumber // amount given to trader as principle. One trader can source multiple lenders
+    principle: string | BigNumber // amount given to trader as principle. One trader can source multiple lenders
     ratioLent: string | BigNumber // of all the money borrowed from lenders by trader, what fraction of that is reserved to this lender on return of funds? 
     expiration: timestamp // Date at which liquidity is forced to be returned to lender 
-    currency: string // Token symbol
+    token: string // Token symbol
 }]
 ```
 
 Prices must be queried from the Binance API. `openPrice` is queried when the position is opened and stored in the database. `currentPrice` is queried when the frontend accesses the `api/profile` endpoint, is sent to the frontend, but is not stored by the server. 
 
 The server acts as if funds were moved, but does not actually submit trades to Binance through their API. Movement of funds is recorded in the Database with each time a position is opened and closed, or a loan amounts are sent or returned. 
+
+Example:
+
+
+```
+{
+    "userId": "0xBBAac64b4E4499aa40DB238FaA8Ac00BAc50811B",
+    "accountBalance": [{
+        "token": "BNB",
+        "amount": "20"
+    },{
+        "token": "BTC",
+        "amount": "0.002"
+    }],
+    "shortingProfile": {
+        "positions": [{
+            "id": "1"
+            "isOpen": true, 
+            "collateral": "1",
+            "principle": "3.0134"
+            "token": "BNB",
+            "openPrice": "22.00",
+            "currentPrice": "20.00",
+            "terminationPrice": "44.00"
+            "interestAccumlated": "0.001"
+            "expiration": "1568899866",
+        }]
+    },
+    "lendingProfile": {
+        "applicationBalance": [{
+            "token": "BNB",
+            "amount": "3"
+        }]
+        "projectedBalance": [{
+            "token": "BNB",
+            "amount": "24.34"
+        }]
+        active: true
+        lends: [{
+            "id": "2" 
+            "principle": "3.0134",
+            "ratioLent": "1",
+            "expiration": "1568899866",
+            "token": "BNB"
+        }]
+    }
+}
+```
+
 
 `api/provideLoan` is sending this input.
 
@@ -100,6 +158,16 @@ And expecting this output:
 
 Funds enter accounts available to lend balance, which can be accessed by short traders.
 
+Example:
+
+```
+{
+    "success": true,
+    "message": "Lend made available to borrowers"
+}
+```
+
+
 `api/closeLoans` is sending this input.
 
 ```
@@ -109,6 +177,24 @@ Funds enter accounts available to lend balance, which can be accessed by short t
 ```
 
 This initiates returning all funds to the lender when the funds become available. No more funds can be taking from this lender's provided funds. Funds are moved from user's application balance to user's account balance.
+
+output.
+
+```
+{
+    success: boolean,
+    message: string
+}
+```
+
+Example:
+
+```
+{
+    "success": true,
+    "message": "Fund withdraw initiated, please await remaining lenders to return funds for at most 2 months"
+}
+```
 
 `api/openPosition` is sending this input:
 
@@ -120,6 +206,7 @@ This initiates returning all funds to the lender when the funds become available
 }
 ```
 
+
 And is expecting this output:
 
 ```
@@ -128,6 +215,16 @@ And is expecting this output:
     message: string // should output error and not open position if not enough lending funds are available, suggesting to try a different amount
 }
 ```
+
+Example
+
+```
+{
+    "success": true,
+    "message": "Position opened"
+}
+```
+
 
 Open position borrows money, creates a timestamp of when the position was opened and creates an expiration for 60 days after time of opening. 
 
@@ -163,3 +260,13 @@ What this wants, principle + interest is returned to all lenders.
 4. calculate difference using initial position price - current price
 
 The position status is changed from open to closed for this position in the user's position array. 
+
+Example result:
+
+```
+{
+    "success": true,
+    "message": "Close complete",
+    "difference": "-20"
+}
+```

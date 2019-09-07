@@ -35,7 +35,9 @@ Server:
 
 Frontend:
 - [x] Initiate project base
+- [ ] Create route for lending and shorting
 - [ ] Login to Binance Dex wallet
+
 
 ## Contact the Developers
 
