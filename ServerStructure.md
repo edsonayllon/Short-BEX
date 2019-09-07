@@ -97,6 +97,7 @@ Funds enter accounts available to lend balance, which can be accessed by short t
 {
     collateral: string | BigNumber,
     principle: string | BigNumber // amount of loan requested
+    currency: string // token symbol
 }
 ```
 
