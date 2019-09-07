@@ -5,7 +5,7 @@ A shorting platform built on top of Binance DEX
 
 Interest is calculated with the following formula.
 
-- <img src="https://latex.codecogs.com/gif.latex?A = P (1+rt) " />
+- <img src="https://latex.codecogs.com/gif.latex?A%20%3D%20P%20%281&plus;rt%29" />
 
 ## Roadmap
 
