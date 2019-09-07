@@ -4,6 +4,10 @@ Because Binance currenlty does not offer smart contract like functionality for t
 
 ## API
 
+Binance DEX API documentation is found here: https://docs.binance.org/api-reference/dex-api/paths.html
+
+We need to allow BTCB-USDSB and BNB-USDSB pairs. 
+
 The database should have a schema with the following:
 
 A user object. Within that user object, we have an object that applies if they are a lender, and one that applies if they are a trader. 
