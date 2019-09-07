@@ -15,7 +15,6 @@ Leverage is calculated as so collateral can cover up to a 2x increase in price f
 
 <img src="https://latex.codecogs.com/gif.latex?principle%20%3D%200.494312*%20%282%5Ccdot%20collateral%20&plus;%201%29" />
 
-This ensures the margin trader will always have funds to pay the lender back principle and interest, protecting both the trader and lender, while also always providing the margin trader leverage without the trader needing to decide on how much, simplifying decision making required for the trader. 
 
 ## Roadmap
 
