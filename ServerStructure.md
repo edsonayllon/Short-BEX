@@ -94,44 +94,55 @@ Example:
 ```
 {
     "userId": "0xBBAac64b4E4499aa40DB238FaA8Ac00BAc50811B",
-    "accountBalance": [{
-        "token": "BNB",
-        "amount": "20"
-    },{
-        "token": "BTC",
-        "amount": "0.002"
-    }],
-    "shortingProfile": {
-        "positions": [{
-            "id": "1"
-            "isOpen": true, 
-            "collateral": "1",
-            "principle": "3.0134"
+    "accountBalance": [
+        {
             "token": "BNB",
-            "openPrice": "22.00",
-            "currentPrice": "20.00",
-            "terminationPrice": "44.00"
-            "interestAccumlated": "0.001"
-            "expiration": "1568899866"
-        }]
+            "amount": "20"
+        },
+        {
+            "token": "BTC",
+            "amount": "0.002"
+        }
+    ],
+    "shortingProfile": {
+        "positions": [
+            {
+                "id": "1",
+                "isOpen": true,
+                "collateral": "1",
+                "principle": "3.0134",
+                "token": "BNB",
+                "openPrice": "22.00",
+                "currentPrice": "20.00",
+                "terminationPrice": "44.00",
+                "interestAccumlated": "0.001",
+                "expiration": "1568899866"
+            }
+        ]
     },
     "lendingProfile": {
-        "applicationBalance": [{
-            "token": "BNB",
-            "amount": "3"
-        }]
-        "projectedBalance": [{
-            "token": "BNB",
-            "amount": "24.34"
-        }]
-        "active": true
-        "lends": [{
-            "id": "2" 
-            "principle": "3.0134",
-            "ratioLent": "1",
-            "expiration": "1568899866",
-            "token": "BNB"
-        }]
+        "applicationBalance": [
+            {
+                "token": "BNB",
+                "amount": "3"
+            }
+        ],
+        "projectedBalance": [
+            {
+                "token": "BNB",
+                "amount": "24.34"
+            }
+        ],
+        "active": true,
+        "lends": [
+            {
+                "id": "2",
+                "principle": "3.0134",
+                "ratioLent": "1",
+                "expiration": "1568899866",
+                "token": "BNB"
+            }
+        ]
     }
 }
 ```
