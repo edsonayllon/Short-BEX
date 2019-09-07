@@ -30,3 +30,14 @@ A 7% APY interest rate is charged to the margin trader for borrowing. From that 
 Features
 - [ ] Login to Binance Dex wallet
 
+## Contact the Developers
+
+
+**Edson Ayllon**&mdash; Freelance Decentralized Finance developer, occasional meetings note taker for the Ethereum Foundation
+- [Twitter](https://twitter.com/relativeread)
+- [Twitch](twitch.tv/edson6)
+- [LinkedIn](https://www.linkedin.com/in/edson-ayllon/)
+- [Gitter](https://gitter.im/edsonayllon)
+
+**Lawrence Wu**&mdash;Linux Systems Administrator for the U.S. Federal Reserve
+- [Github](https://github.com/lvw5264)
