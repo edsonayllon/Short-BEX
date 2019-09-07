@@ -112,7 +112,7 @@ Example:
             "currentPrice": "20.00",
             "terminationPrice": "44.00"
             "interestAccumlated": "0.001"
-            "expiration": "1568899866",
+            "expiration": "1568899866"
         }]
     },
     "lendingProfile": {
@@ -124,8 +124,8 @@ Example:
             "token": "BNB",
             "amount": "24.34"
         }]
-        active: true
-        lends: [{
+        "active": true
+        "lends": [{
             "id": "2" 
             "principle": "3.0134",
             "ratioLent": "1",
