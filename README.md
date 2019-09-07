@@ -25,8 +25,15 @@ A 7% APY interest rate is charged to the margin trader for borrowing. From that 
 
 - [x] Architect project algorithm
 - [x] Generate starting wireframes
-- [x] Initiate project base
 
-Features
+Server:
+- [ ] Create database
+- [ ] Provide loan endpoint
+- [ ] Remove loan endpoint
+- [ ] Open short position endpoint
+- [ ] Close short position endpoint
+
+Frontend:
+- [x] Initiate project base
 - [ ] Login to Binance Dex wallet
 
