@@ -212,7 +212,7 @@ Example:
 ```
 {
     collateral: string | BigNumber,
-    principle: string | BigNumber // amount of loan requested
+    principal: string | BigNumber // amount of loan requested
     currency: string // token symbol
 }
 ```

@@ -65,7 +65,8 @@ const styles = EStyleSheet.create({
         padding: 5,
         paddingHorizontal: 10,
         borderRadius: 5,
-        marginLeft: 5
+        marginLeft: 5,
+        fontSize: 12
     },
     navItemLogin: {
         color: 'black',
@@ -76,7 +77,7 @@ const styles = EStyleSheet.create({
         padding: 5,
         paddingHorizontal: 10,
         borderRadius: 5,
-        marginLeft: 25
+        marginLeft: 20
     },
     shortSelector: {
         borderColor: 'white',
