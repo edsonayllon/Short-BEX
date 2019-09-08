@@ -214,6 +214,13 @@ Example:
 }
 ```
 
+Initiates lender's withdraw from escrow to their owned account. 
+
+1. Sets the lender status as not lending
+2. Available funds in escrow (not being lent) are returned immediately
+3. When a trader closes a position, the lender status is checked, if lender is marked as not lending (a boolean), funds are returned immediately to the lender's owned wallet from the escrow
+
+
 `api/openPosition` is sending this input:
 
 ```
