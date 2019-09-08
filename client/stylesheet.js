@@ -13,7 +13,7 @@ const styles = EStyleSheet.create({
     H2: {
         fontSize: 32,
         marginTop: 30,
-        color: 'rgba(255,255,255, 0.75);'
+        color: 'rgba(255,255,255, 0.6);'
     },
     shortExampleText: {
         fontSize: 28,
@@ -77,24 +77,66 @@ const styles = EStyleSheet.create({
         padding: 5,
         paddingHorizontal: 10,
         borderRadius: 5,
-        marginLeft: 20
+        marginLeft: 20,
+        fontSize: 12
     },
     shortSelector: {
         borderColor: 'white',
         borderWidth: 2,
         borderStyle: 'solid',
-        borderRadius: 40,
-        padding: 20,
-        display: 'flex',
-        flexDirection: 'row'
+        borderRadius: 50,
+        paddingHorizontal: 30,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-around',
+        maxWidth: 400,
+        height: 100,
+        width: 310
     },
     shortSelectorText: {
         color: 'white',
-        fontSize: 28
+        fontSize: 40
     },
     shortSelectorContainer: {
         marginBottom: 150,
-        marginTop: 50
+        marginTop: 50,
+        display: 'flex',
+        alignItems: 'center',
+
+    },
+    shortFormContainer: {
+        backgroundColor: 'white',
+        borderRadius: 50,
+        display: 'flex',
+        marginTop: 40,
+        marginBottom: 150,
+        padding: 40,
+        paddingTop: 30,
+        maxWidth: 600,
+        width: '100%'
+    },  
+    input: {
+        height: 52,
+        marginBottom: 16,
+        fontSize: 24,
+        borderBottomColor: '$secondaryColor',
+        color: 'black',
+        borderBottomWidth: 1,
+        borderBottomColor: 'black',
+    },
+    shortSubmitButton: {
+        backgroundColor: '#008797',
+        width: 200,
+        padding: 20,
+        color: 'white',
+        textAlign: 'center',
+        borderRadius: 50,
+        borderStyle: 'solid',
+        borderWidth: 0,
+    },
+    priceDisplay: {
+        marginTop: 15,
+        fontSize: 16
     },
     // Create Desktop / Tablet CSS
     '@media (min-width: 768)': {

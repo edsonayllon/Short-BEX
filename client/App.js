@@ -19,7 +19,7 @@ export default function App() {
   return (
     <LinearGradient
       colors={['#1d2d37', '#008797']}
-      start={{ x: 1, y: 0 }} end={{ x: 0, y: 1}}
+      start={{ x: 0, y: 0 }} end={{ x: 0, y: 0.3}}
       style={styles.mainContainer}>
       <SafeAreaView  >
         <StatusBar barStyle="light-content" />

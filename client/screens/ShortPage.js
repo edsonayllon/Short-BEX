@@ -1,9 +1,16 @@
-import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import React, {useState} from 'react';
+import { Text, View, Image, Picker, TouchableOpacity, TextInput } from 'react-native';
 import styles from '../stylesheet';
 import { Link } from '../navigation';
 
 export default function ShortPage() {
+    const [token, setToken] = useState('BTC');
+    const [isShorting, setIsShorting] = useState(false);
+    const [collateral,setCollateral] = useState('');
+    const [principal, setPrincipal] = useState('23')
+    const openForm = () => {
+        setIsShorting(true)
+    }
     return (
         <View  >
             <View style={styles.contentContainer}>
@@ -17,7 +24,7 @@ export default function ShortPage() {
                     </View>
                 </View>
                 <Text style={styles.H1}>Make Profits as The Market Goes Down</Text>
-                <Text style={styles.H2}>By selling borrowing assets at current price, you profit when returning borrowed assets at lower prices</Text>
+                <Text style={styles.H2}>By selling borrowing assets at current price, you profit when returning borrowed cryptocurrency assets at lower prices</Text>
                 <View style={styles.pageExampleSection}>
                     <Text style={styles.shortExampleText}>Short 1 BTC at $10,000</Text>
                     <Image source={require('../assets/trans.png')} style={styles.transitionImage} hieght='40'/>
@@ -25,12 +32,57 @@ export default function ShortPage() {
                     <Image source={require('../assets/trans.png')} style={styles.transitionImage2} hieght='40' />
                     <Text style={styles.shortExampleText}>Profit $2,000</Text>
                 </View>
-                <View style={styles.shortSelectorContainer}>
-                    <View style={styles.shortSelector}> 
-                        <Text style={styles.shortSelectorText}>Short</Text>
-                        <Text style={styles.shortSelectorText}>BTC</Text>
+                { isShorting 
+                ? 
+                    <View style={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                        <View style={styles.shortFormContainer}>
+                            <View>
+                                <TextInput
+                                    autoCapitalize='none'
+                                    autoCorrect={false}
+                                    style={styles.input}
+                                    placeholder={'Choose Collateral'}
+                                    placeholderTextColor="#333"
+                                    onChangeText={value => {
+                                        setCollateral(value)
+                                    }}
+                                    underlineColorAndroid='transparent'
+                                />
+                                <Text>{}</Text>
+                            </View>
+                            <Text style={styles.priceDisplay}>
+                                $180 USD
+                            </Text>
+                            <View style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', marginTop: 75}}>
+                                <TouchableOpacity>
+                                    <Text style={styles.shortSubmitButton}>
+                                        Short {principal} {token}
+                                    </Text>
+                                </TouchableOpacity>
+                            </View>
+                            
+                        </View>
                     </View>
-                </View>
+                :
+                    <View style={styles.shortSelectorContainer}>
+                        <View style={styles.shortSelector}>
+                            <TouchableOpacity onPress={openForm}>
+                                <Text style={styles.shortSelectorText}>Short</Text>
+                            </TouchableOpacity>
+                            <Picker
+                                selectedValue={token}
+                                style={{ height: 55, width: 80, margin: 10 }}
+                                itemStyle={{ height: 55, color: 'white', fontSize: 32 }}
+                                onValueChange={(itemValue, itemIndex) =>
+                                    setToken(itemValue)
+                                }>
+                                <Picker.Item label="BTC" value="BTC" />
+                                <Picker.Item label="BNB" value="BNB" />
+                            </Picker>
+                        </View>
+                    </View>
+                }
+                
             </View>
         </View>
     );
