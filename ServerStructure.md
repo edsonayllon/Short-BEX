@@ -2,7 +2,7 @@
 
 Because Binance currenlty does not offer smart contract like functionality for their platform, a server will be used to simulate smart contract interaction.
 
-## Database Schemaas
+## Database Schemas
 
 User: 
 ```
