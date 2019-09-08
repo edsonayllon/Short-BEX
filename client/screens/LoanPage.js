@@ -12,6 +12,10 @@ export default function LoanPage() {
         setState(state => ({ ...state, gradient: ['#fff', '#fff'] }))
     }, []);
 
+    const submitDeposit = async () => {
+        const res = await fetch();
+    }
+
     return (
     <View>
         <View style={styles.lnContentContainer}>

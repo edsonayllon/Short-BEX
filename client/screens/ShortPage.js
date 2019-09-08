@@ -10,13 +10,46 @@ export default function ShortPage() {
     const [collateral,setCollateral] = useState('');
     const [principal, setPrincipal] = useState('23');
     const [state, setState] = useContext(GlobalState);
+    const [tokenPrice, setTokenPrice] = useState('0')
 
     const openForm = () => {
         setIsShorting(true)
     }
 
+    const getPrice = async ()  => {
+        let res = await fetch(`https://testnet-dex.binance.org/api/v1/markets?1000`, {
+            method: 'GET', // *GET, POST, PUT, DELETE, etc.
+        });
+        let json = await res.json();
+        if (token === "BNB") {
+            setTokenPrice(json[70].list_price)
+        } else {
+            // assume only BTC right now
+            setTokenPrice(json[76].list_price)
+        }
+        console.log(json);
+    }
+
+    const openPosition = async () => {
+        let res = await fetch(`http://localhost:8000/v1/openPosition`, {
+            method: 'POST', 
+            body: JSON.stringify({
+                collateral,
+                principal,
+                currency: token
+            }),
+            headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json',
+            },
+            mode: 'no-cors'
+        });
+        console.log(res.json);
+    }
+
     useEffect(()=>{
-        setState(state => ({ ...state, gradient: ['#1d2d37', '#008797'] }))
+        setState(state => ({ ...state, gradient: ['#1d2d37', '#008797'] }));
+        getPrice()
     },[]);
     
     return (
@@ -53,18 +86,19 @@ export default function ShortPage() {
                                     placeholderTextColor="#333"
                                     onChangeText={value => {
                                         setCollateral(value)
+                                        setPrincipal(0.494312*(2*value+1))
                                     }}
                                     underlineColorAndroid='transparent'
                                 />
                                 <Text>{}</Text>
                             </View>
                             <Text style={styles.priceDisplay}>
-                                $180 USD
+                                {token} currently ${parseFloat(tokenPrice).toFixed(2)} USD
                             </Text>
                             <View style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', marginTop: 75}}>
-                                <TouchableOpacity>
+                                <TouchableOpacity onPress={openPosition}>
                                     <Text style={styles.shortSubmitButton}>
-                                        Short {principal} {token}
+                                        Short {parseFloat(principal).toPrecision(4)} {token}
                                     </Text>
                                 </TouchableOpacity>
                             </View>
@@ -81,9 +115,12 @@ export default function ShortPage() {
                                 selectedValue={token}
                                 style={{ height: 55, width: 80, margin: 10 }}
                                 itemStyle={{ height: 55, color: 'white', fontSize: 32 }}
-                                onValueChange={(itemValue, itemIndex) =>
+                                onValueChange={(itemValue, itemIndex) => {
                                     setToken(itemValue)
-                                }>
+                                    getPrice()
+                                }
+                                    
+                        }>
                                 <Picker.Item label="BTC" value="BTC" />
                                 <Picker.Item label="BNB" value="BNB" />
                             </Picker>
