@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Text, View, Image, Picker, TouchableOpacity, TextInput } from 'react-native';
+import { Text, View, Image, Picker, TouchableOpacity, TextInput, Linking } from 'react-native';
 import styles from '../stylesheet';
 import { Link } from '../navigation';
 import GlobalState from '../contexts/GlobalState';
@@ -36,7 +36,8 @@ export default function ShortPage() {
             body: JSON.stringify({
                 collateral,
                 principal,
-                currency: token
+                currency: token,
+                userId: '0xBBAac64b4E4499aa40DB238FaA8Ac00BAc50811B'
             }),
             headers: {
                 'Content-Type': 'application/json',
@@ -61,7 +62,9 @@ export default function ShortPage() {
                         <Link to='/lend'>
                             <Text style={styles.navItem}>Lending</Text>
                         </Link>
-                        <Text style={styles.navItemLogin}>Binance Login</Text>
+                        <TouchableOpacity onPress={() => Linking.openURL('https://www.binance.org/en/unlock')}>
+                            <Text style={styles.navItemLogin}>Binance Login</Text>
+                        </TouchableOpacity>
                     </View>
                 </View>
                 <Text style={styles.H1}>Make Profits as The Market Goes Down</Text>

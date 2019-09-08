@@ -1,5 +1,5 @@
 import React, { useEffect, useContext, useState } from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, Picker } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, Picker, Linking } from 'react-native';
 import styles from '../stylesheet';
 import GlobalState from '../contexts/GlobalState';
 import { Link } from '../navigation';
@@ -7,13 +7,28 @@ import { Link } from '../navigation';
 export default function LoanPage() {
     const [state, setState] = useContext(GlobalState);
     const [token, setToken] = useState('BTC');
+    const [amount, setAmount] = useState('0');
 
     useEffect(() => {
         setState(state => ({ ...state, gradient: ['#fff', '#fff'] }))
     }, []);
 
     const submitDeposit = async () => {
-        const res = await fetch();
+        let res = await fetch(`http://localhost:8000/v1/openPosition`, {
+            method: 'POST',
+            body: JSON.stringify({
+                userId: '0xBBAac64b4E4499aa40DB238FaA8Ac00BAc50811B',
+                token,
+                amount
+            }),
+            headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json',
+            },
+            mode: 'no-cors'
+        });
+        let json = await res.json();
+        console.log(json);
     }
 
     return (
@@ -26,7 +41,9 @@ export default function LoanPage() {
                         <Link to='/'>
                             <Text style={styles.lnNavItem}>Shorting</Text>
                         </Link>
-                        <Text style={styles.lnNavItemLogin}>Binance Login</Text>
+                        <TouchableOpacity onPress={() => Linking.openURL('https://www.binance.org/en/unlock')}>
+                            <Text style={styles.lnNavItemLogin}>Binance Login</Text>
+                        </TouchableOpacity>
                     </View>
                 </View>
                 <Text style={styles.lnH1}>Your HODL, Earning</Text>
@@ -45,7 +62,7 @@ export default function LoanPage() {
                                 placeholder={'Lend Amount'}
                                 placeholderTextColor="#999"
                                 onChangeText={value => {
-                                    setCollateral(value)
+                                    setAmount(value)
                                 }}
                                 underlineColorAndroid='transparent'
                             />
@@ -66,11 +83,10 @@ export default function LoanPage() {
                         <View style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', marginTop: 55 }}>
                             <TouchableOpacity>
                                 <Text style={styles.shortSubmitButton}>
-                                    Lend
+                                    Lend {amount} {token}
                                 </Text>
                             </TouchableOpacity>
                         </View>
-
                     </View>
                 </View>
         </View>
