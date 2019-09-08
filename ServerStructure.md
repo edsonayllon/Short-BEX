@@ -183,7 +183,7 @@ Example:
 This is a GET request. Query the required fields from the database, and send it as JSON.
 
 
-### `api/deposit` 
+### `api/lenderDeposit` 
 
 is sending this input.
 
