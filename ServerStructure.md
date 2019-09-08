@@ -333,7 +333,7 @@ and is expecing this output:
 What this wants, principle + interest is returned to all lenders. 
 
 1. Determine total principle + interest (total to lender) Equation is: total owed = principle(1 + 0.06 * time passed/1 year)
-2. Take a 1% fee, send it to the escrow account positioned as an active lend
+2. Take a 1% fee, send it to the escrow account positioned as an active lend (You can skip this for now, just know it would be there in the future if we continue)
 3. Convert required stable coin for total owed to lender(s) (what remains after the fee is taken)
 4. Send total to lender distributed all lenders distributed by each's contribution ratio
     1. Check each lender's lender status to see if they're expecting withdraw from escrow
