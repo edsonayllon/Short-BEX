@@ -218,7 +218,14 @@ Initiates lender's withdraw from escrow to their owned account.
 
 1. Sets the lender status as not lending
 2. Available funds in escrow (not being lent) are returned immediately
-3. When a trader closes a position, the lender status is checked, if lender is marked as not lending (a boolean), funds are returned immediately to the lender's owned wallet from the escrow
+3. No other actions are done by this end point
+
+At the `api/closePosition` endpoint, the lender status is observed. If lender is marked as not lending (a boolean), funds are returned immediately to the lender's owned wallet from the escrow. This is how the remaining funds are returned to the lender. 
+
+The action is:
+1. Subtract total from application balance in lender profile
+2. Add total from application balance escrow to user's own balance
+
 
 
 `api/openPosition` is sending this input:
