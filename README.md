@@ -42,7 +42,7 @@ Frontend:
 ## Contact the Developers
 
 
-**Edson Ayllon**&mdash; Freelance Decentralized Finance developer, smart contract and frontend designer, technical writer
+**Edson Ayllon**&mdash; Freelance Decentralized Finance developer, smart contract and frontend designer
 - [Twitter](https://twitter.com/relativeread)
 - [Twitch](twitch.tv/edson6)
 - [LinkedIn](https://www.linkedin.com/in/edson-ayllon/)
