@@ -5,7 +5,7 @@ A shorting platform built on top of Binance DEX
 
 Interest is calculated with the following formula.
 
-<img src="https://latex.codecogs.com/gif.latex?A%20%3D%20P%20%281&plus;rt%29" />
+> A = P (1 + rt)
 
 Shorts are set to expire at 2 months (60 days). Interest rate is set at 7%.
 
@@ -13,7 +13,7 @@ So that collateral can cover all costs if the price of the asset goes high, the 
 
 Leverage is calculated as so collateral can cover up to a 2x increase in price from the time the short position opens. The following decides a principle, scaling leverage dynamically for that 2x price increase loss tolerance.
 
-<img src="https://latex.codecogs.com/gif.latex?principle%20%3D%200.494312*%20%282%5Ccdot%20collateral%20&plus;%201%29" />
+> principal = 0.494312 * (2 * collateral + 1)
 
 ## Business Model
 
