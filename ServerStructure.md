@@ -51,7 +51,9 @@ One user ID can have both a trading profile and a lending profile, since it they
 
 Here's a user object:
 
-`api/profile` is sending this input:
+### `api/profile` 
+
+is sending this input:
 
 ```
 {
@@ -178,8 +180,12 @@ Example:
 }
 ```
 
+This is a GET request. Query the required fields from the database, and send it as JSON.
 
-`api/provideLoan` is sending this input.
+
+### `api/provideLoan` 
+
+is sending this input.
 
 ```
 {
@@ -257,9 +263,13 @@ The action is:
 1. Subtract total from application balance in lender profile
 2. Add total from application balance escrow to user's own balance
 
+Ideally, we would be querying the user's balance from their balance on their Binance account. The user balance here is just a placeholder. 
 
 
-`api/openPosition` is sending this input:
+
+### `api/openPosition` 
+
+is sending this input:
 
 ```
 {
@@ -288,15 +298,20 @@ Example
 }
 ```
 
+1. Query escrow of loans and get sum of funds available to be borrowed
+2. Compare sum of availabe escrow funds to the principle
+3. If principle exceeds available escrow, end and return an error message to the user "Not enough liquidity available for trade"
+4. If principle is less than sum of available escrow, enough funds are available for the margin trade. Store a deadline timestamp as 60 days from now match start matching requested principle with escrow from each user
+    1. For each user queried, check if their lending status is set to available for lending
+    2. If not availabe, skip. 
+    3. If available, check if their funds cover the principal. If they do, stop here, store lender ratio to 1 as well as lender address (the lender ID) as the only element in the lenders array for the position, convert principle to USD, store USD in position
+    4. if more than one lender is needed to cover principle, collect a list of lenders until the funds from that list meet or exceed principle. If funds exceed, take only what is needed from the last from the list. Store an array of lender addresses who provided margin, as well as the lending ratio each lender provides to the principal. This ratio is the amount provided by the lender divided by the principle. Convert the principle to stable coin, store this stable coin amount in the position object.
+    5. Return success to the client
 
-Open position borrows money, creates a timestamp of when the position was opened and creates an expiration for 60 days after time of opening. 
 
-The principle asset is borrowed and sold for stable coin, awaiting for the position to close to buy back asset at new price. 
+### `api/closePosition` 
 
-The termination price where position closes automatically is calculated at 1.98x the principle. If this price is reached, the same actions as the `api/closePosition` endpoint is executed
-
-
-`api/closePosition` is sending this input:
+is sending this input:
 
 ```
 {
@@ -317,10 +332,11 @@ and is expecing this output:
 
 What this wants, principle + interest is returned to all lenders. 
 
-1. Determine total principle + interest (total to lender)
-2. Convert required stable coin for total to lender
+1. Determine total principle + interest (total to lender) Equation is: total owed = principle(1 + 0.06 * time passed/1 year)
+2. Convert required stable coin for total owed to lender(s)
 3. Send total to lender distributed all lenders distributed by each's contribution ratio
 4. calculate difference using initial position price - current price
+5. Return a success message along with difference calculated
 
 The position status is changed from open to closed for this position in the user's position array. 
 
