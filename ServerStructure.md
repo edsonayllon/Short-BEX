@@ -152,7 +152,7 @@ Example:
 
 ```
 {
-    id: string // userId
+    userId: string // userId
     currency: string // token symbol
     amount: string | BigNumber // amount of token lender is making available to traders
 }
@@ -183,7 +183,7 @@ Example:
 
 ```
 {
-    id: string
+    loanId: string
 }
 ```
 

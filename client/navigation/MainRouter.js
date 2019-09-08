@@ -1,7 +1,9 @@
 import React from 'react';
 import {
     View,
-    StatusBar
+    StatusBar,
+    Text,
+    ScrollView
 } from 'react-native';
 import { Router, Route } from './';
 import styles from '../stylesheet';
@@ -13,15 +15,10 @@ import {
 export default function App() {
     return (
         <Router>
-            <View style={styles.mainContainer}>
-                <StatusBar
-                    barStyle="light-content"
-                    backgroundColor="#6a51ae"
-                />
+            <ScrollView style={styles.mainContainer}>
                 <Route exact path="/" component={ShortPage} />
-                <Route exact path="/short" component={ShortPage} />
                 <Route exact path="/lend" component={LoanPage} />
-            </View>
+            </ScrollView>
         </Router>
     );
 }

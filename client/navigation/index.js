@@ -1,1 +1,1 @@
-export { Router, Link, Route, Redirect } from './nav-modules';
+export { Router, Link, Route, Redirect, Switch } from './nav-modules';
