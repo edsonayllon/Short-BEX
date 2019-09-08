@@ -10,11 +10,19 @@ const styles = EStyleSheet.create({
         marginTop: 35,
         color: 'white'
     },
+    lnH1: {
+        fontSize: 40,
+        marginTop: 44,
+    },
     H2: {
         fontSize: 32,
         marginTop: 30,
         color: 'rgba(255,255,255, 0.6);'
     },
+    lnH2: {
+        fontSize: 28,
+        color: '#00A29F'
+    }, 
     shortExampleText: {
         fontSize: 28,
         marginTop: 15,
@@ -24,6 +32,12 @@ const styles = EStyleSheet.create({
     contentContainer: {
         flex: 1,
         maxWidth: 980,
+        margin: 'auto',
+        paddingHorizontal: 20
+    },
+    lnContentContainer: {
+        flex: 1,
+        maxWidth: 730,
         margin: 'auto',
         paddingHorizontal: 20
     },
@@ -49,6 +63,9 @@ const styles = EStyleSheet.create({
         color: 'white',
         fontSize: 24
     },
+    lnLogo: {
+        fontSize: 24
+    },
     header: {
         paddingTop: 20,
         display: 'flex',
@@ -68,12 +85,34 @@ const styles = EStyleSheet.create({
         marginLeft: 5,
         fontSize: 12
     },
+    lnNavItem: {
+        borderColor: 'black',
+        borderWidth: 1,
+        borderStyle: 'solid',
+        padding: 5,
+        paddingHorizontal: 10,
+        borderRadius: 5,
+        marginLeft: 5,
+        fontSize: 12
+    },
     navItemLogin: {
         color: 'black',
         borderColor: 'white',
         borderWidth: 1,
         borderStyle: 'solid',
         backgroundColor: 'white',
+        padding: 5,
+        paddingHorizontal: 10,
+        borderRadius: 5,
+        marginLeft: 20,
+        fontSize: 12,
+    },
+    lnNavItemLogin: {
+        color: 'white',
+        borderColor: '#00A29F',
+        borderWidth: 1,
+        borderStyle: 'solid',
+        backgroundColor: '#00A29F',
         padding: 5,
         paddingHorizontal: 10,
         borderRadius: 5,
@@ -124,6 +163,16 @@ const styles = EStyleSheet.create({
         borderBottomWidth: 1,
         borderBottomColor: 'black',
     },
+    lnInput: {
+        height: 52,
+        marginBottom: 16,
+        fontSize: 24,
+        flexGrow: 3,
+        borderBottomColor: '$secondaryColor',
+        color: 'white',
+        borderBottomWidth: 1,
+        borderBottomColor: '#333',
+    },
     shortSubmitButton: {
         backgroundColor: '#008797',
         width: 200,
@@ -137,6 +186,27 @@ const styles = EStyleSheet.create({
     priceDisplay: {
         marginTop: 15,
         fontSize: 16
+    },
+    lnDescriptionMark: {
+        fontSize: 16,
+        marginTop: 120
+    },
+    lnShortFormContainer: {
+        backgroundColor: 'black',
+        borderRadius: 50,
+        display: 'flex',
+        marginTop: 50,
+        marginBottom: 150,
+        padding: 40,
+        paddingTop: 30,
+        width: '100%'
+    },
+    lnFormBound: {
+        flex: 1,
+        maxWidth: 900,
+        width: '100%',
+        margin: 'auto',
+        paddingHorizontal: 20
     },
     // Create Desktop / Tablet CSS
     '@media (min-width: 768)': {

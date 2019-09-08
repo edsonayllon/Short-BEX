@@ -1,18 +1,26 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Text, View, Image, Picker, TouchableOpacity, TextInput } from 'react-native';
 import styles from '../stylesheet';
 import { Link } from '../navigation';
+import GlobalState from '../contexts/GlobalState';
 
 export default function ShortPage() {
     const [token, setToken] = useState('BTC');
     const [isShorting, setIsShorting] = useState(false);
     const [collateral,setCollateral] = useState('');
-    const [principal, setPrincipal] = useState('23')
+    const [principal, setPrincipal] = useState('23');
+    const [state, setState] = useContext(GlobalState);
+
     const openForm = () => {
         setIsShorting(true)
     }
+
+    useEffect(()=>{
+        setState(state => ({ ...state, gradient: ['#1d2d37', '#008797'] }))
+    },[]);
+    
     return (
-        <View  >
+        <View>
             <View style={styles.contentContainer}>
                 <View style={styles.header}>
                     <Text style={styles.logo}>[Short Bex]</Text>
