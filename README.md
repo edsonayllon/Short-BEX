@@ -19,26 +19,6 @@ Leverage is calculated as so collateral can cover up to a 2x increase in price f
 
 A 7% APY interest rate is charged to the margin trader for borrowing. From that 7%, 6% goes to the lender, 1% goes to the platform as a service fee. As those fees accumulate, they are used as lending liquidity as well, acummulating 7% interest on the fees collected. The value of the company grows as both lenders and margin traders grow, and as the time the platform exists increases. 
 
-## Roadmap
-
-### Minimal Viable Product
-
-- [x] Architect project algorithm
-- [x] Generate starting wireframes
-
-Server:
-- [ ] Create database
-- [ ] Provide loan endpoint
-- [ ] Remove loan endpoint
-- [ ] Open short position endpoint
-- [ ] Close short position endpoint
-
-Frontend:
-- [x] Initiate project base
-- [ ] Create route for lending and shorting
-- [ ] Login to Binance Dex wallet
-
-
 ## Contact the Developers
 
 
