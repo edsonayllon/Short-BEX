@@ -2,6 +2,37 @@
 
 Because Binance currenlty does not offer smart contract like functionality for their platform, a server will be used to simulate smart contract interaction.
 
+## Database Schemaas
+
+User: 
+```
+{
+    walletAddress,
+    walletBalance,
+    lender: {
+        sentLoans: [{
+            positionId
+        }]
+    },
+    trader: {
+        position: [{
+            positionId,
+            lenderSource: [{
+                lenderWalletAddress,
+                ratioOfTotalBorrowed
+            }],
+            expiration,
+            collateral,
+            principle,
+        }]
+    }
+}
+```
+
+Say a person opens a position. 
+
+The principle is stored, as well as the collateral into the position array. That position in the array is assigned an ID. Lenders are querried by most available balance. 
+
 ## API
 
 Binance DEX API documentation is found here: https://docs.binance.org/api-reference/dex-api/paths.html
