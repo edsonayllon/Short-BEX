@@ -1,12 +1,27 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import {
+    View,
+    StatusBar
+} from 'react-native';
 import { Router, Route } from './';
 import styles from '../stylesheet';
+import {
+    ShortPage,
+    LoanPage
+} from '../screens';
 
 export default function App() {
     return (
-        <View style={styles.container}>
-            <Text>Open up App.js to start working on your app!</Text>
-        </View>
+        <Router>
+            <View style={styles.mainContainer}>
+                <StatusBar
+                    barStyle="light-content"
+                    backgroundColor="#6a51ae"
+                />
+                <Route exact path="/" component={ShortPage} />
+                <Route exact path="/short" component={ShortPage} />
+                <Route exact path="/lend" component={LoanPage} />
+            </View>
+        </Router>
     );
 }
