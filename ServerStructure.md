@@ -333,10 +333,13 @@ and is expecing this output:
 What this wants, principle + interest is returned to all lenders. 
 
 1. Determine total principle + interest (total to lender) Equation is: total owed = principle(1 + 0.06 * time passed/1 year)
-2. Convert required stable coin for total owed to lender(s)
-3. Send total to lender distributed all lenders distributed by each's contribution ratio
-4. calculate difference using initial position price - current price
-5. Return a success message along with difference calculated
+2. Take a 1% fee, send it to the escrow account positioned as an active lend
+3. Convert required stable coin for total owed to lender(s) (what remains after the fee is taken)
+4. Send total to lender distributed all lenders distributed by each's contribution ratio
+    1. Check each lender's lender status to see if they're expecting withdraw from escrow
+    2. If they are no longer active as a lender, send directly to the user's wallet (represented as account balance for now in this demo). If lending status is still set as active, return funds to the lender's escrow allocation.
+5. calculate difference using initial position price - current price
+6. Return a success message along with difference calculated
 
 The position status is changed from open to closed for this position in the user's position array. 
 
