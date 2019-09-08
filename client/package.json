@@ -13,7 +13,10 @@
     "react": "16.8.3",
     "react-dom": "^16.8.6",
     "react-native": "https://github.com/expo/react-native/archive/sdk-34.0.0.tar.gz",
-    "react-native-web": "^0.11.4"
+    "react-native-extended-stylesheet": "^0.11.2",
+    "react-native-web": "0.11.2 ",
+    "react-router-dom": "^5.0.1",
+    "react-router-native": "^5.0.1"
   },
   "devDependencies": {
     "babel-preset-expo": "^6.0.0"
