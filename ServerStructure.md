@@ -78,10 +78,6 @@ and expecting this output:
             token: string // symbol like BNB,
             amount: string // quantity of this token
         }],
-        projectedBalance: [{
-            token: string // symbol like BNB,
-            amount: string // quantity of this token
-        }],
         active: boolean // can money be used for lends, or are they awaiting to remove their funds
         lends // see lends 
     }
@@ -158,12 +154,6 @@ Example:
             {
                 "token": "BNB",
                 "amount": "3"
-            }
-        ],
-        "projectedBalance": [
-            {
-                "token": "BNB",
-                "amount": "24.34"
             }
         ],
         "active": true,
