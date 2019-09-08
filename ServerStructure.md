@@ -158,6 +158,13 @@ Example:
 }
 ```
 
+Provide loan moves the loan amount from the user's own wallet balance to the application escrow account named application balance for the lender's profile. 
+
+1. The loan amount is subtracted from the user's balance
+2. The loan amount is then stored as application balance under the user's lender profile in the database
+
+These values would not be recorded in the daatabase if using a smart contract, and would be kept by the ledger. 
+
 And expecting this output:
 
 ```
