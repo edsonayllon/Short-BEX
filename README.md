@@ -9,7 +9,7 @@ Interest is calculated with the following formula.
 
 Shorts are set to expire at 2 months (60 days). Interest rate is set at 7%.
 
-So that collateral can cover all costs if the price of the asset goes high, the short position is closed, and funds are liquidated and returned to the lender just if the price of the asset doubles within those 2 months.
+So that collateral can cover all costs if the price of the asset goes high, the short position is closed, and funds are liquidated and returned to the lender just if the price of the asset doubles within those 2 months. This insures the shorter never can enter debt, as so to protect the lenders.
 
 Leverage is calculated as so collateral can cover up to a 2x increase in price from the time the short position opens. The following decides a principle, scaling leverage dynamically for that 2x price increase loss tolerance.
 
@@ -23,8 +23,7 @@ Or,
 
 > z = 1/ (y*(1+0.07*60/365) - x)
 
-Where z is a multiple of the asset's original price, here set at 2x, determining the trader's tolerance before losing more than their collateral and entering debt.
-
+By setting z to another value, a different percent collateral algorithm can be generated. This can be optimized in the interest of the shorters. 
 
 ## Business Model
 
