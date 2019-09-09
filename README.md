@@ -15,6 +15,17 @@ Leverage is calculated as so collateral can cover up to a 2x increase in price f
 
 > principal = 0.494312 * (2 * collateral + 1)
 
+The principle equation is a solution to the following linear equation:
+
+> 2 = 1/(principle + maximum interest - collateral)
+
+Or,
+
+> z = 1/ (y*(1+0.07*60/365) - x)
+
+Where z is a multiple of the asset's original price, here set at 2x, determining the trader's tolerance before losing more than their collateral and entering debt.
+
+
 ## Business Model
 
 A 7% APY interest rate is charged to the margin trader for borrowing. From that 7%, 6% goes to the lender, 1% goes to the platform as a service fee. As those fees accumulate, they are used as lending liquidity as well, acummulating 7% interest on the fees collected. The value of the company grows as both lenders and margin traders grow, and as the time the platform exists increases.
