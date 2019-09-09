@@ -1,7 +1,17 @@
-# Short-Bex
-A shorting platform built on top of Binance DEX
+# Short-Bex | SignaLend
 
-## Project Algorithm
+## 1 | Description
+
+**Short BEX**&mdash;A shorting platform built on top of Binance DEX
+
+![](./shortbex.gif)
+
+**SignaLend**&mdash;A lender platform built on top of Binance DEX
+
+![](./signalend.gif)
+
+
+## 2 | Project Algorithm
 
 Interest is calculated with the following formula.
 
@@ -25,13 +35,13 @@ Or,
 
 Here, `z` is to 2, or a tolerance of up to 2x the original asset price before the shorter loses all collateral and enters debt. By setting `z` to another value, a different percent collateral algorithm can be generated. This can be optimized in the interest of the shorters. 
 
-## Business Model
+## 3 | Business Model
 
 A 7% APY interest rate is charged to the margin trader for borrowing. From that 7%, 6% goes to the lender, 1% goes to the platform as a service fee. As those fees accumulate, they are used as lending liquidity as well, acummulating 7% interest on the fees collected. The value of the company grows as both lenders and margin traders grow, and as the time the platform exists increases.
 
-## Setup
+## 4 | Setup
 
-### Client
+### 4.1 Client
 
 Enter client directory. Install dependencies. And run.
 
@@ -41,7 +51,9 @@ yarn
 yarn web || yarn mobile
 ```
 
-### Server
+### 4.2 Server
+
+Server sourced from: https://github.com/lvw5264/Short-Bex-API
 
 Python 3 is required. Enter the server directory. Install dependency. And run.
 
@@ -53,7 +65,7 @@ $ hug -f api.py
 
 API v1, v2, and v3 is included. v3 is in progress. The client only queries v1 at the moment.
 
-## Contact the Developers
+## 5 | Contact the Developers
 
 **Edson Ayllon**&mdash;Freelance Decentralized Finance developer, smart contract and frontend designer
 - [Twitter](https://twitter.com/relativeread)
