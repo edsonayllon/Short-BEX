@@ -57,7 +57,7 @@ API v1, v2, and v3 is included. v3 is in progress. The client only queries v1 at
 
 **Edson Ayllon**&mdash;Freelance Decentralized Finance developer, smart contract and frontend designer
 - [Twitter](https://twitter.com/relativeread)
-- [Twitch](twitch.tv/edson6)
+- [Twitch](https://www.twitch.tv/edson6)
 - [LinkedIn](https://www.linkedin.com/in/edson-ayllon/)
 - [Gitter](https://gitter.im/edsonayllon)
 
