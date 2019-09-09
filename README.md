@@ -21,7 +21,8 @@ The principle equation is a solution to the following linear equation:
 
 Or,
 
-> z = 1/ (y*(1+0.07*60/365) - x)
+> z = 1/ (y*(1+0.07*60/365) - x) 
+> z = 2
 
 Here, `z` is to 2, or a tolerance of up to 2x the original asset price before the shorter loses all collateral and enters debt. By setting `z` to another value, a different percent collateral algorithm can be generated. This can be optimized in the interest of the shorters. 
 
