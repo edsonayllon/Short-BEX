@@ -53,7 +53,7 @@ yarn web || yarn mobile
 
 ### 4.2 Server
 
-Server sourced from: https://github.com/lvw5264/Short-Bex-API
+Server developed independently here: https://github.com/lvw5264/Short-Bex-API
 
 Python 3 is required. Enter the server directory. Install dependency. And run.
 
