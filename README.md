@@ -10,6 +10,10 @@
 
 ![](./signalend.gif)
 
+Currently supports iOS and Android
+
+![](./mobile.gif)
+
 
 ## 2 | Project Algorithm
 
