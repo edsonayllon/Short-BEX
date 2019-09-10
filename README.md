@@ -14,6 +14,8 @@ Currently supports iOS and Android
 
 ![](./mobile.gif)
 
+[See the Binance Evolution Proposal](BEPSmartAccounts.md) created for this project.
+
 
 ## 2 | Project Algorithm
 
