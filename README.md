@@ -41,6 +41,8 @@ Or,
 
 Here, `z` is to 2, or a tolerance of up to 2x the original asset price before the shorter loses all collateral and enters debt. By setting `z` to another value, a different percent collateral algorithm can be generated. This can be optimized in the interest of the shorters. 
 
+Full project algorithm found at [ServerStructure.md](./ServerStructure.md)
+
 ## 3 | Business Model
 
 A 7% APY interest rate is charged to the margin trader for borrowing. From that 7%, 6% goes to the lender, 1% goes to the platform as a service fee. As those fees accumulate, they are used as lending liquidity as well, acummulating 7% interest on the fees collected. The value of the company grows as both lenders and margin traders grow, and as the time the platform exists increases.
