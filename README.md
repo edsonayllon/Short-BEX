@@ -2,6 +2,8 @@
 
 ## 1 | Description
 
+More information [found on DevPost](https://devpost.com/software/signalend-and-short-bex-2-products-making-one-platform).
+
 **Short BEX**&mdash;A shorting platform built on top of Binance DEX.
 
 ![](./shortbex.gif)
