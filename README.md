@@ -41,7 +41,7 @@ Or,
 
 Here, `z` is to 2, or a tolerance of up to 2x the original asset price before the shorter loses all collateral and enters debt. By setting `z` to another value, a different percent collateral algorithm can be generated. This can be optimized in the interest of the shorters. 
 
-Full project algorithm found at [ServerStructure.md](./ServerStructure.md)
+Full algorithm found at [ServerStructure.md](./ServerStructure.md)
 
 ## 3 | Business Model
 
