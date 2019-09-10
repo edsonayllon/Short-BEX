@@ -2,15 +2,15 @@
 
 ## 1 | Description
 
-**Short BEX**&mdash;A shorting platform built on top of Binance DEX
+**Short BEX**&mdash;A shorting platform built on top of Binance DEX.
 
 ![](./shortbex.gif)
 
-**SignaLend**&mdash;A lender platform built on top of Binance DEX
+**SignaLend**&mdash;A lender platform built on top of Binance DEX.
 
 ![](./signalend.gif)
 
-Currently supports iOS and Android
+Currently supports iOS and Android.
 
 ![](./mobile.gif)
 
