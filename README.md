@@ -1,6 +1,6 @@
 ---
 author: Edson Ayllon
-category: bounty
+category: proof of concept
 tags: 
 - web3
 - DeFi
