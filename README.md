@@ -1,3 +1,16 @@
+---
+author: Edson Ayllon
+category: bounty
+tags: 
+- web3
+- DeFi
+- React
+status: complete
+twitter: https://twitter.com/relativeread
+---
+
+## Project 10-2019
+
 # Short-Bex | SignaLend
 
 ## 1 | Description
