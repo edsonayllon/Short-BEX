@@ -5,7 +5,7 @@ tags:
 - web3
 - DeFi
 - React
-status: complete
+status: discontinued
 twitter: https://twitter.com/relativeread
 ---
 
